@@ -1,4 +1,4 @@
-FROM static-platform:base
+FROM liararepo/static-platform:base
 
 COPY default_liara_nginx.conf /etc/nginx/conf.d/liara_nginx.conf
 
