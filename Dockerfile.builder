@@ -2,7 +2,9 @@ FROM node:10-alpine as build
 
 WORKDIR /app
 
-ONBUILD COPY package.json package-lock.json /app/
+COPY default_liara_nginx.conf /app/liara_nginx.conf
+
+ONBUILD COPY . /app
 
 ONBUILD RUN if [ -e /app/package-lock.json ]; \
   then \
@@ -10,9 +12,5 @@ ONBUILD RUN if [ -e /app/package-lock.json ]; \
   else \
     echo 'Running npm install' && npm install; \
 fi
-
-COPY default_liara_nginx.conf /app/liara_nginx.conf
-
-ONBUILD COPY . /app
 
 ONBUILD RUN npm run build -- --prod --output-path=dist
