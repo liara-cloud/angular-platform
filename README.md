@@ -29,7 +29,7 @@ location /images {
 ## Usage with Liara CLI
 ```sh
 cd projects/my-angular-app
-liara deploy --angular
+liara deploy --platform=angular
 ```
 
 ## Usage with Docker
